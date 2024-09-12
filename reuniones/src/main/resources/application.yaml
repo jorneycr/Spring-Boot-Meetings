@@ -1,0 +1,40 @@
+server:
+  port: 8080
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          datasource:
+            init:
+              ScriptUtils: "debug"
+spring:
+  h2:
+    console:
+      enabled: true
+  datasource:
+    url: "jdbc:h2:mem:testdb"
+  jpa:
+    hibernate:
+      ddl-auto: "none"
+---
+spring:
+  config:
+    activate:
+      on-profile: "desarrollo"
+server:
+  port: 8081
+---
+spring:
+  config:
+    activate:
+      on-profile: "pruebas"
+server:
+  port: 8082
+---
+spring:
+  config:
+    activate:
+      on-profile: "produccion"
+server:
+  port: 9000
