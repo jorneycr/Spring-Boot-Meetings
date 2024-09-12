@@ -5,6 +5,7 @@ import es.dsrima.school.reuniones.models.Reunion;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReunionService {
@@ -18,7 +19,7 @@ public class ReunionService {
         return reunionRepository.findAll();
     }
 
-    public Reunion getById(long id){
-        return reunionRepository.findById(id).get();
+    public Optional<Reunion> getById(long id){
+        return reunionRepository.findById(id);
     }
 }

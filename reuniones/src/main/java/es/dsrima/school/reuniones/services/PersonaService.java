@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PersonaService {
@@ -22,7 +23,7 @@ public class PersonaService {
         return personaRepository.findAll();
     }
 
-    public Persona getById(long id){
-        return personaRepository.findById(id).get();
+    public Optional<Persona> getById(long id){
+        return personaRepository.findById(id);
     }
 }
